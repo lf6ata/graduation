@@ -135,7 +135,7 @@
                 setTimeout(() => {
                     typeText(document.getElementById('message'), msg, 80);
                     console.log(document.getElementById('message').innerText.length);
-                    if (document.getElementById('message').innerText.length == 602) {
+                    if (i === 8) {
                         setTimeout(() => {
                             btnElement.style.display = 'flex';
                         }, 10000 );
