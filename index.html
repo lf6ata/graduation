@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            text-decoration: none;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .graduation-box {
+            /* background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+            padding: 20px;
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .graduation-box .btn {
+            display: none;
+            margin-top: 2rem;
+            position: absolute;
+            line-height: 0;
+            padding: 1.6rem 3rem;
+            border-radius: 4em;
+            transition: 0.5s;
+            color: #fff;
+            background: rgba(247, 57, 88, 0.703);
+            box-shadow: 0px 5px 18px rgb(244, 111, 111);
+            font-family: "Nunito", sans-serif;
+        }
+
+        .graduation-box .btn i {
+            margin-left: 0.3rem;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .graduation-box .btn:hover {
+            background: rgb(255, 20, 59);
+        }
+        .graduation-box .btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* .graduation-box .btn span {
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: 0.1rem;
+        } */
+
+    </style>
+    <title>❤️ Graduation Helena ❤️</title>
+</head>
+<body>
+    <div class="graduation-box">
+        <h2 id="greeting"></h2>
+        <div id="message"></div>
+        <a href="flower.html" class="btn"><span>Klik aku, ada sesuatu untukmu ❤️</span></a>
+    </div>
+
+<script>
+    // disable developer mode
+    document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+        return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+    }
+
+
+    
+    const greeting = "Happy Graduation, Helena Sayang ❤️🎓✨";
+    const messages = [
+        "Akhrinya, jerih payah dan kerja keras yang kamu tempuh tercapai, sayang 🤗❤️✨.",
+        " Semua waktu yang kamu habiskan untuk belajar, berjuang, dan tidak menyerah kini membuahkan hasil yang luar biasa.",
+        " Semoga perjalananmu selanjutnya penuh dengan kesuksesan dan kebahagiaan.",
+        " Ini adalah awal yang baru, dan aku yakin kamu akan mencapai lebih banyak hal hebat di masa depan! 💪",
+        " Teruslah berusaha, teruslah bermimpi, dan jangan pernah ragu untuk melangkah lebih jauh.",
+        " Dunia ini milikmu, dan kamu sudah menunjukkan bahwa kamu punya kekuatan untuk meraihnya.",
+        " Aku bangga banget bisa lihat kamu sampai di titik ini! 🎉.",
+        " Sekali lagi selamat ya sayang ❤️ , dan semoga semua yang terbaik selalu bersama kamu, aamiin 🙏"
+    ];
+    
+    function typeText(element, text, delay) {
+        let index = 0;
+        const typing = setInterval(() => {
+            if (index < text.length) {
+
+                element.innerHTML += text.charAt(index);
+                index++;
+            } else {
+                clearInterval(typing);
+            }
+                
+        }, delay);
+    }
+    
+    function startTyping() {
+        let btnElement = document.querySelector('.btn');
+
+        typeText(document.getElementById('greeting'), greeting, 100);
+        setTimeout(() => {
+            messages.forEach((msg, i) => {
+                setTimeout(() => {
+                    typeText(document.getElementById('message'), msg, 80);
+                    console.log(document.getElementById('message').innerText.length);
+                    if (document.getElementById('message').innerText.length == 602) {
+                        setTimeout(() => {
+                            btnElement.style.display = 'flex';
+                        }, 10000 );
+                        
+                    }
+                    
+                }, i * 11000); // 4000 ms for each message
+            });
+            
+        }, greeting.length * 100 + 1000); // Wait for greeting to finish
+        
+    }
+    
+    window.onload = startTyping;
+    
+    
+    </script>
+</body>
+
+</html>
